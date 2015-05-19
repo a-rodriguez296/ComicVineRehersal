@@ -7,12 +7,14 @@
 //
 
 #import "SuggestionsViewController.h"
-
-
+#import "SuggestionsViewModel.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const reuseIdentifier = @"SuggestionCell";
 
 @interface SuggestionsViewController ()
+
+@property (nonatomic, strong) SuggestionsViewModel *vm;
 
 @end
 
@@ -20,6 +22,14 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.vm = [SuggestionsViewModel new];
+    @weakify(self);
+    [self.vm.didUpdateSuggestionsSignal subscribeNext:^(id x) {
+        @strongify(self);
+        [self.tableView reloadData];
+        
+    }];
     
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseIdentifier];
@@ -35,21 +45,21 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return self.vm.numberOfSuggestions;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    [cell setBackgroundColor:[UIColor redColor]];
+    [cell.textLabel setText:[self.vm suggestionsAtIndex:indexPath.row]];
     return cell;
 }
 
 
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
-    
+    self.vm.query = searchController.searchBar.text;
 }
 
 @end
