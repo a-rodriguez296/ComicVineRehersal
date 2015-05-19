@@ -15,6 +15,8 @@
 		9C7E8B251B0AC5F4003E7533 /* ComicVineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B241B0AC5F4003E7533 /* ComicVineTests.m */; };
 		9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B2F1B0AC6E0003E7533 /* SearchViewController.m */; };
 		9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C925F031B0AC8C600F7056E /* SuggestionsViewController.m */; };
+		9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */; };
+		A5B52117637899C6A8BAFC76 /* libPods-ComicVine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 884B8453D558EA06F1766B4B /* libPods-ComicVine.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		884B8453D558EA06F1766B4B /* libPods-ComicVine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComicVine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7E8B051B0AC5F4003E7533 /* ComicVine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicVine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7E8B091B0AC5F4003E7533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7E8B0A1B0AC5F4003E7533 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +46,10 @@
 		9C7E8B2F1B0AC6E0003E7533 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		9C925F021B0AC8C600F7056E /* SuggestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsViewController.h; sourceTree = "<group>"; };
 		9C925F031B0AC8C600F7056E /* SuggestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsViewController.m; sourceTree = "<group>"; };
+		9C925F051B0ACCBC00F7056E /* SuggestionsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsViewModel.h; sourceTree = "<group>"; };
+		9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsViewModel.m; sourceTree = "<group>"; };
+		D7913B31EBC451ED2E7A9207 /* Pods-ComicVine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicVine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComicVine/Pods-ComicVine.debug.xcconfig"; sourceTree = "<group>"; };
+		FD419ED4900270EA34939127 /* Pods-ComicVine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicVine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComicVine/Pods-ComicVine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B52117637899C6A8BAFC76 /* libPods-ComicVine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69E2F240E8DD897E7BACA3E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7913B31EBC451ED2E7A9207 /* Pods-ComicVine.debug.xcconfig */,
+				FD419ED4900270EA34939127 /* Pods-ComicVine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9C7E8AFC1B0AC5F4003E7533 = {
 			isa = PBXGroup;
 			children = (
 				9C7E8B071B0AC5F4003E7533 /* ComicVine */,
 				9C7E8B211B0AC5F4003E7533 /* ComicVineTests */,
 				9C7E8B061B0AC5F4003E7533 /* Products */,
+				69E2F240E8DD897E7BACA3E2 /* Pods */,
+				C006E02018B1AF26316B721E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +106,7 @@
 				9C7E8B0C1B0AC5F4003E7533 /* AppDelegate.h */,
 				9C7E8B0D1B0AC5F4003E7533 /* AppDelegate.m */,
 				9C7E8B121B0AC5F4003E7533 /* Main.storyboard */,
+				9C925F081B0ACCC200F7056E /* View Models */,
 				9C7E8B311B0AC6F1003E7533 /* Controllers */,
 				9C7E8B151B0AC5F4003E7533 /* Images.xcassets */,
 				9C7E8B171B0AC5F4003E7533 /* LaunchScreen.xib */,
@@ -132,6 +152,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		9C925F081B0ACCC200F7056E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C925F051B0ACCBC00F7056E /* SuggestionsViewModel.h */,
+				9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
+		C006E02018B1AF26316B721E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				884B8453D558EA06F1766B4B /* libPods-ComicVine.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C7E8B281B0AC5F4003E7533 /* Build configuration list for PBXNativeTarget "ComicVine" */;
 			buildPhases = (
+				E67BB21C465F696BF3D9ECC4 /* Check Pods Manifest.lock */,
 				9C7E8B011B0AC5F4003E7533 /* Sources */,
 				9C7E8B021B0AC5F4003E7533 /* Frameworks */,
 				9C7E8B031B0AC5F4003E7533 /* Resources */,
+				C439C99DC82523AE510ABDC0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,12 +266,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C439C99DC82523AE510ABDC0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ComicVine/Pods-ComicVine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E67BB21C465F696BF3D9ECC4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9C7E8B011B0AC5F4003E7533 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */,
+				9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */,
 				9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */,
 				9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */,
 				9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */,
@@ -359,6 +432,7 @@
 		};
 		9C7E8B291B0AC5F4003E7533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7913B31EBC451ED2E7A9207 /* Pods-ComicVine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ComicVine/Info.plist;
@@ -369,6 +443,7 @@
 		};
 		9C7E8B2A1B0AC5F4003E7533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD419ED4900270EA34939127 /* Pods-ComicVine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ComicVine/Info.plist;
