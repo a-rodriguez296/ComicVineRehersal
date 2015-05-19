@@ -7,8 +7,11 @@
 //
 
 #import "ComicVineClient.h"
+#import "Response.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <AFNetworking/AFNetworking.h>
+
 
 static NSString *const APIKey = @"75d580a0593b7320727309feb6309f62def786cd";
 static NSString *const format = @"json";
@@ -45,6 +48,7 @@ static NSString *const format = @"json";
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         AFHTTPRequestOperation * operation = [self.requestManager GET:@"search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            Response *resp = [Response responseWithJSONDictionary:responseObject resultClass:Nil];
             [subscriber sendNext:@[@"Hola",@"Como",@"Estas"]];
             [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -57,9 +61,6 @@ static NSString *const format = @"json";
         }];
         
     }];
-    
-    
-    
 }
 
 @end

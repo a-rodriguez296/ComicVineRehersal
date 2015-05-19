@@ -4,6 +4,7 @@
 target 'ComicVine' do
 pod 'ReactiveCocoa'
 pod 'AFNetworking'
+pod 'Mantle'
 
 end
 
