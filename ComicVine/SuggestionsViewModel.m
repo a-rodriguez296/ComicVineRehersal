@@ -7,9 +7,11 @@
 //
 
 #import "SuggestionsViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "ComicVineClient.h"
+#import "Response.h"
+#import "Volume.h"
 
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface SuggestionsViewModel ()
 
@@ -75,7 +77,20 @@
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
     
-    return [self.client fetchSuggestedVolumeswithQuery:query];
+    return [[self.client fetchSuggestedVolumeswithQuery:query] map:^id(Response * response) {
+        
+        NSMutableArray *mutArray = [NSMutableArray array];
+        for (Volume *volume in response.results) {
+            NSLog(@"%@", volume.title);
+            
+            //Esto se hace para evitar que se agreguen elementos con el mismo titulo al array
+            if ([mutArray containsObject:volume.title]) {
+                continue;
+            }
+            [mutArray addObject:volume.title];
+        }
+        return mutArray;
+    }];
 }
 
 @end

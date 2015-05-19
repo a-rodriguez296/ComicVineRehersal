@@ -24,13 +24,12 @@
     id results = dictionary[@"results"];
     if (resultsClass != Nil) {
         if ([results isKindOfClass:[NSArray class]]) {
-            response.results = [MTLJSONAdapter modelOfClass:resultsClass fromJSONDictionary:results error:NULL];
-        }
-        else{
             response.results = [MTLJSONAdapter modelsOfClass:resultsClass fromJSONArray:results error:NULL];
         }
+        else{
+            response.results = [MTLJSONAdapter modelOfClass:resultsClass fromJSONDictionary:results error:NULL];
+        }
     }
-    
     response.results = results;
     return response;
 }
