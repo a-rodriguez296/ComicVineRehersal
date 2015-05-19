@@ -8,12 +8,14 @@
 
 #import "SuggestionsViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ComicVineClient.h"
 
 
 @interface SuggestionsViewModel ()
 
 
 @property (nonatomic, copy) NSArray *suggestions;
+@property (nonatomic, strong) ComicVineClient * client;
 
 @end
 
@@ -23,6 +25,7 @@
 - (instancetype)init
 {
     if (self == [super init]){
+        _client = [[ComicVineClient alloc] init];
         [self setupSignals];
     }
     return self;
@@ -57,7 +60,7 @@
     
     RACSignal *suggestionsSignal = [input flattenMap:^RACStream *(id value) {
         
-        return [self fetchSuggestionsWithQuery:@"asdf"];
+        return [self fetchSuggestionsWithQuery:self.query];
     }];
     
     
@@ -72,7 +75,7 @@
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
     
-    return [RACSignal return:@[@"Hola",@"Como", @"estas"]] ;
+    return [self.client fetchSuggestedVolumeswithQuery:query];
 }
 
 @end
