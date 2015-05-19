@@ -46,16 +46,32 @@ static NSString *const format = @"json";
                                  @"resources":@"volume"};
     
     
-    return [self GET:@"search" parameters:parameters];
+    return [self GET:@"search" parameters:parameters class:[Volume class]];
 }
 
 
+-(RACSignal *) fetchVolumesWithQuery:(NSString *) query page:(NSUInteger) page{
+    
+    NSDictionary *parameters = @{
+                                 @"api_key": APIKey,
+                                 @"format": format,
+                                 @"field_list": @"id,image,name,publisher",
+                                 @"limit": @20,
+                                 @"page": @(page),
+                                 @"query": query,
+                                 @"resources": @"volume"};
+    
+    return  nil;
+}
+
 -(RACSignal *) GET:(NSString *) path parameters:(NSDictionary *) parameters{
     
-    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    @weakify(self);
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
+        @strongify(self);
         AFHTTPRequestOperation * operation = [self.requestManager GET:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [subscriber sendNext:[Response responseWithJSONDictionary:responseObject resultClass:[Volume class]]];
+            [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [subscriber sendError:error];
@@ -65,8 +81,17 @@ static NSString *const format = @"json";
         return [RACDisposable disposableWithBlock:^{
             [operation cancel];
         }];
-    }];
-    
+        
+        //deliverOn se hace para que la respuesta de AFNetworking y todo el parseo del JSON se haga en background
+    }] deliverOn:[RACScheduler scheduler]];
 }
+
+-(RACSignal *) GET:(NSString *) path parameters:(NSDictionary *) parameters class:(Class) class{
+    
+    return [[self GET:path parameters:parameters] map:^id(NSDictionary * jsonDictionary) {
+        return [Response responseWithJSONDictionary:jsonDictionary resultClass:class];
+    }];
+}
+
 
 @end

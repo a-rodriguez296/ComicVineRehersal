@@ -35,7 +35,19 @@
 }
 
 
-
+-(NSError *) error{
+    
+    if (self.statusCode.integerValue == 1) {
+        return nil;
+    }
+    
+    NSDictionary *userInfo = @{
+                               NSLocalizedDescriptionKey: self.errorMessage
+                               };
+    
+    return [NSError errorWithDomain:@"ComicVineErrorDomain" code:self.statusCode.integerValue userInfo:userInfo];
+    
+}
 
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{

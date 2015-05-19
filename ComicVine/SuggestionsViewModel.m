@@ -66,6 +66,7 @@
     }];
     
     
+    //Acá se hace el catch en caso de que haya un error
     RAC(self, suggestions) = [suggestionsSignal catch:^RACSignal *(NSError *error) {
         return nil;
     }];
@@ -77,11 +78,10 @@
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
     
-    return [[self.client fetchSuggestedVolumeswithQuery:query] map:^id(Response * response) {
+    return [[[self.client fetchSuggestedVolumeswithQuery:query] map:^id(Response * response) {
         
         NSMutableArray *mutArray = [NSMutableArray array];
         for (Volume *volume in response.results) {
-            NSLog(@"%@", volume.title);
             
             //Esto se hace para evitar que se agreguen elementos con el mismo titulo al array
             if ([mutArray containsObject:volume.title]) {
@@ -90,7 +90,7 @@
             [mutArray addObject:volume.title];
         }
         return mutArray;
-    }];
+    }] deliverOnMainThread];
 }
 
 @end

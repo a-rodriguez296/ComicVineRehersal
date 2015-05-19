@@ -24,5 +24,6 @@
 
 
 +(instancetype) responseWithJSONDictionary:(NSDictionary *) dictionary resultClass:(Class) resultsClass;
+-(NSError *) error;
 
 @end
