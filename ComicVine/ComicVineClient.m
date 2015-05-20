@@ -61,7 +61,7 @@ static NSString *const format = @"json";
                                  @"query": query,
                                  @"resources": @"volume"};
     
-    return  nil;
+    return  [self GET:@"search" parameters:parameters class:Nil];;
 }
 
 -(RACSignal *) GET:(NSString *) path parameters:(NSDictionary *) parameters{

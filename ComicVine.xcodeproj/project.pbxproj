@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C445DA71B0BC6D7007807DA /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C445DA61B0BC6D7007807DA /* Response.m */; };
 		9C445DAB1B0BCFE5007807DA /* Volume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C445DAA1B0BCFE5007807DA /* Volume.m */; };
+		9C445DAE1B0BE4FF007807DA /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C445DAD1B0BE4FF007807DA /* SearchViewModel.m */; };
 		9C7E75F51B0AD5CC003270EF /* ComicVineClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E75F41B0AD5CC003270EF /* ComicVineClient.m */; };
 		9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B0A1B0AC5F4003E7533 /* main.m */; };
 		9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B0D1B0AC5F4003E7533 /* AppDelegate.m */; };
@@ -38,6 +39,8 @@
 		9C445DA61B0BC6D7007807DA /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		9C445DA91B0BCFE5007807DA /* Volume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volume.h; sourceTree = "<group>"; };
 		9C445DAA1B0BCFE5007807DA /* Volume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volume.m; sourceTree = "<group>"; };
+		9C445DAC1B0BE4FF007807DA /* SearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
+		9C445DAD1B0BE4FF007807DA /* SearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
 		9C7E75F31B0AD5CC003270EF /* ComicVineClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComicVineClient.h; sourceTree = "<group>"; };
 		9C7E75F41B0AD5CC003270EF /* ComicVineClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComicVineClient.m; sourceTree = "<group>"; };
 		9C7E8B051B0AC5F4003E7533 /* ComicVine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicVine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,8 @@
 			children = (
 				9C925F051B0ACCBC00F7056E /* SuggestionsViewModel.h */,
 				9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */,
+				9C445DAC1B0BE4FF007807DA /* SearchViewModel.h */,
+				9C445DAD1B0BE4FF007807DA /* SearchViewModel.m */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */,
+				9C445DAE1B0BE4FF007807DA /* SearchViewModel.m in Sources */,
 				9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */,
 				9C445DA71B0BC6D7007807DA /* Response.m in Sources */,
 				9C445DAB1B0BCFE5007807DA /* Volume.m in Sources */,

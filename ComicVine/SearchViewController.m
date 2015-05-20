@@ -46,14 +46,31 @@
     
     
     SuggestionsViewController *suggestionsVC = [SuggestionsViewController new];
+    [suggestionsVC setDelegate:self];
     
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:suggestionsVC];
     [searchController setSearchResultsUpdater:suggestionsVC];
     [searchController setHidesNavigationBarDuringPresentation:NO];
+    [searchController.searchBar setDelegate:self];
     
     
     
     [self presentViewController:searchController animated:YES completion:nil];
 }
 
+
+#pragma mark SuggestionsViewControllerDelegate
+-(void)suggestionsViewController:(SuggestionsViewController *)suggestionsViewController didSelectSuggestion:(NSString *)suggestion{
+    NSLog(@"%@", suggestion);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+   
+    NSString *text = searchBar.text;
+     NSLog(@"%@", text);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SuggestionsViewController.h"
 
-@interface SearchViewController : UITableViewController
+@interface SearchViewController : UITableViewController <UISearchBarDelegate,SuggestionsViewControllerDelegate>
 
 @end

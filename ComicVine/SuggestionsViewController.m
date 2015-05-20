@@ -36,11 +36,6 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,6 +49,16 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     [cell.textLabel setText:[self.vm suggestionsAtIndex:indexPath.row]];
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString * suggestion = [self.vm suggestionsAtIndex:indexPath.row];
+    if (self.delegate) {
+        [self.delegate suggestionsViewController:self didSelectSuggestion:suggestion];
+    }
+    
 }
 
 
