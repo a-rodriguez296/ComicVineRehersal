@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@class SearchResultViewModel;
 @class RACSignal;
+
 
 @interface SearchViewModel : NSObject
 
@@ -19,6 +22,7 @@
 @property (nonatomic, strong, readonly) RACSignal * didUpdateResultsSignal;
 
 
--(NSString *) resultAtIndex:(NSUInteger ) index;
+-(SearchResultViewModel *) resultAtIndex:(NSUInteger ) index;
+
 
 @end

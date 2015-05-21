@@ -8,15 +8,21 @@
 
 #import "SearchViewController.h"
 #import "SuggestionsViewController.h"
+#import "SearchViewModel.h"
 
 @interface SearchViewController ()
+
+@property (nonatomic, strong) SearchViewModel *vm;
 
 @end
 
 @implementation SearchViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _vm = [[SearchViewModel alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +46,8 @@
 }
 
 
+
+
 #pragma mark IBActions
 
 - (IBAction)didTapSearch:(id)sender {
@@ -61,8 +69,8 @@
 
 #pragma mark SuggestionsViewControllerDelegate
 -(void)suggestionsViewController:(SuggestionsViewController *)suggestionsViewController didSelectSuggestion:(NSString *)suggestion{
-    NSLog(@"%@", suggestion);
-    
+
+    [self.vm setQuery:suggestion];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -70,7 +78,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
    
     NSString *text = searchBar.text;
-     NSLog(@"%@", text);
+    [self.vm setQuery:text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
