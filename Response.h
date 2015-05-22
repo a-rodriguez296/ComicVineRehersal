@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy, readonly) NSString *errorMessage;
 
-@property (nonatomic, copy, readonly) NSNumber *numberOfResults;
+@property (nonatomic, copy, readonly) NSNumber *numberOfTotalResults;
 
 @property (nonatomic, copy, readonly) NSNumber *offset;
 

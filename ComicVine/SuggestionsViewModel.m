@@ -7,6 +7,8 @@
 //
 
 #import "SuggestionsViewModel.h"
+#import "ComicVineClient.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 
@@ -58,7 +60,7 @@
     @weakify(self);
     RACSignal *suggestionsSignal = [input flattenMap:^RACStream *(id value) {
         @strongify(self);
-        return [self fetchSuggestionsWithQuery:@"asdf"];
+        return [self fetchSuggestionsWithQuery:self.query];
     }];
     
     
@@ -72,8 +74,10 @@
 
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
-    
-    return [[RACSignal return:@[@"Hola",@"Como", @"estas"]] delay:0.5] ;
+    ComicVineClient *client = [ComicVineClient new];
+    return [[client fetchSuggestedVolumesWithQuery:query] map:^id(id value) {
+        return @[@"Hola", @"Como", @"estas"];
+    }];
 }
 
 @end
