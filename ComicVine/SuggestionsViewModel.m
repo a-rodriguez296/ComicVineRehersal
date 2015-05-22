@@ -72,7 +72,7 @@
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
     
-    return [RACSignal return:@[@"Hola",@"Como", @"estas"]] ;
+    return [[RACSignal return:@[@"Hola",@"Como", @"estas"]] delay:0.5] ;
 }
 
 @end

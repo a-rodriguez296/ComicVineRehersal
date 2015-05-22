@@ -24,6 +24,7 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
     [super viewDidLoad];
     
     self.viewModel = [SuggestionsViewModel new];
+    
     @weakify(self);
     [self.viewModel.didUpdateSuggestionsSignal subscribeNext:^(id x) {
         @strongify(self);
@@ -36,10 +37,6 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
