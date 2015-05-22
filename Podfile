@@ -3,6 +3,7 @@
 
 target 'ComicVine' do
 pod 'ReactiveCocoa'
+pod 'AFNetworking'
 
 end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C6700A41B0F837600916A7E /* ComicVineClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6700A31B0F837600916A7E /* ComicVineClient.m */; };
 		9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B0A1B0AC5F4003E7533 /* main.m */; };
 		9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B0D1B0AC5F4003E7533 /* AppDelegate.m */; };
 		9C7E8B141B0AC5F4003E7533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E8B121B0AC5F4003E7533 /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		884B8453D558EA06F1766B4B /* libPods-ComicVine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComicVine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C6700A21B0F837600916A7E /* ComicVineClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComicVineClient.h; sourceTree = "<group>"; };
+		9C6700A31B0F837600916A7E /* ComicVineClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComicVineClient.m; sourceTree = "<group>"; };
 		9C7E8B051B0AC5F4003E7533 /* ComicVine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicVine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7E8B091B0AC5F4003E7533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7E8B0A1B0AC5F4003E7533 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +83,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9C6700A51B0F864200916A7E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9C6700A21B0F837600916A7E /* ComicVineClient.h */,
+				9C6700A31B0F837600916A7E /* ComicVineClient.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		9C7E8AFC1B0AC5F4003E7533 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +115,7 @@
 		9C7E8B071B0AC5F4003E7533 /* ComicVine */ = {
 			isa = PBXGroup;
 			children = (
+				9C6700A51B0F864200916A7E /* Network */,
 				9C7E8B0C1B0AC5F4003E7533 /* AppDelegate.h */,
 				9C7E8B0D1B0AC5F4003E7533 /* AppDelegate.m */,
 				9C7E8B121B0AC5F4003E7533 /* Main.storyboard */,
@@ -308,6 +321,7 @@
 				9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */,
 				9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */,
 				9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */,
+				9C6700A41B0F837600916A7E /* ComicVineClient.m in Sources */,
 				9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

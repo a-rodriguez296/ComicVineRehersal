@@ -55,8 +55,9 @@
     //Crea un "filtro" para que solo se mande la señal después de 0.4 segundos de inactividad
     input = [input throttle:0.4];
     
+    @weakify(self);
     RACSignal *suggestionsSignal = [input flattenMap:^RACStream *(id value) {
-        
+        @strongify(self);
         return [self fetchSuggestionsWithQuery:@"asdf"];
     }];
     
