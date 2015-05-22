@@ -21,6 +21,9 @@
 		9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E8B2F1B0AC6E0003E7533 /* SearchViewController.m */; };
 		9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C925F031B0AC8C600F7056E /* SuggestionsViewController.m */; };
 		9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */; };
+		9CE932031B0D81B000BCCFC9 /* Search.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CE932011B0D81B000BCCFC9 /* Search.xcdatamodeld */; };
+		9CE932081B0D829800BCCFC9 /* _ManagedVolume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE932051B0D829800BCCFC9 /* _ManagedVolume.m */; };
+		9CE932091B0D829800BCCFC9 /* ManagedVolume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE932071B0D829800BCCFC9 /* ManagedVolume.m */; };
 		A5B52117637899C6A8BAFC76 /* libPods-ComicVine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 884B8453D558EA06F1766B4B /* libPods-ComicVine.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,11 @@
 		9C925F031B0AC8C600F7056E /* SuggestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsViewController.m; sourceTree = "<group>"; };
 		9C925F051B0ACCBC00F7056E /* SuggestionsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsViewModel.h; sourceTree = "<group>"; };
 		9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsViewModel.m; sourceTree = "<group>"; };
+		9CE932021B0D81B000BCCFC9 /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
+		9CE932041B0D829800BCCFC9 /* _ManagedVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ManagedVolume.h; sourceTree = "<group>"; };
+		9CE932051B0D829800BCCFC9 /* _ManagedVolume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ManagedVolume.m; sourceTree = "<group>"; };
+		9CE932061B0D829800BCCFC9 /* ManagedVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedVolume.h; sourceTree = "<group>"; };
+		9CE932071B0D829800BCCFC9 /* ManagedVolume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedVolume.m; sourceTree = "<group>"; };
 		D7913B31EBC451ED2E7A9207 /* Pods-ComicVine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicVine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComicVine/Pods-ComicVine.debug.xcconfig"; sourceTree = "<group>"; };
 		FD419ED4900270EA34939127 /* Pods-ComicVine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicVine.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComicVine/Pods-ComicVine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +119,7 @@
 				9C445DA61B0BC6D7007807DA /* Response.m */,
 				9C445DA91B0BCFE5007807DA /* Volume.h */,
 				9C445DAA1B0BCFE5007807DA /* Volume.m */,
+				9CE9320A1B0D82A500BCCFC9 /* Core Data */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -200,6 +209,34 @@
 				9C61BE631B0C25C400425A31 /* SearchResultViewModel.m */,
 			);
 			name = "View Models";
+			sourceTree = "<group>";
+		};
+		9CE9320A1B0D82A500BCCFC9 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9CE932011B0D81B000BCCFC9 /* Search.xcdatamodeld */,
+				9CE9320B1B0D82B100BCCFC9 /* Machine Files */,
+				9CE9320C1B0D82BE00BCCFC9 /* Human Files */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		9CE9320B1B0D82B100BCCFC9 /* Machine Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CE932041B0D829800BCCFC9 /* _ManagedVolume.h */,
+				9CE932051B0D829800BCCFC9 /* _ManagedVolume.m */,
+			);
+			name = "Machine Files";
+			sourceTree = "<group>";
+		};
+		9CE9320C1B0D82BE00BCCFC9 /* Human Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CE932061B0D829800BCCFC9 /* ManagedVolume.h */,
+				9CE932071B0D829800BCCFC9 /* ManagedVolume.m */,
+			);
+			name = "Human Files";
 			sourceTree = "<group>";
 		};
 		C006E02018B1AF26316B721E /* Frameworks */ = {
@@ -348,12 +385,15 @@
 				9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */,
 				9C445DAE1B0BE4FF007807DA /* SearchViewModel.m in Sources */,
 				9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */,
+				9CE932091B0D829800BCCFC9 /* ManagedVolume.m in Sources */,
 				9C445DA71B0BC6D7007807DA /* Response.m in Sources */,
 				9C445DAB1B0BCFE5007807DA /* Volume.m in Sources */,
 				9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */,
 				9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */,
+				9CE932081B0D829800BCCFC9 /* _ManagedVolume.m in Sources */,
 				9C61BE641B0C25C400425A31 /* SearchResultViewModel.m in Sources */,
 				9C7E75F51B0AD5CC003270EF /* ComicVineClient.m in Sources */,
+				9CE932031B0D81B000BCCFC9 /* Search.xcdatamodeld in Sources */,
 				9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +603,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CE932011B0D81B000BCCFC9 /* Search.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CE932021B0D81B000BCCFC9 /* Search.xcdatamodel */,
+			);
+			currentVersion = 9CE932021B0D81B000BCCFC9 /* Search.xcdatamodel */;
+			path = Search.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9C7E8AFD1B0AC5F4003E7533 /* Project object */;
 }

@@ -11,6 +11,7 @@
 #import "ComicVineClient.h"
 #import "Response.h"
 #import "Volume.h"
+#import "ManagedVolume.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 @import CoreData;
@@ -61,9 +62,12 @@
     NSManagedObjectContext *context = self.privateContext;
     [context performBlock:^{
         //Borrar la db antes de escribir volumenes nuevos
+        
+        [ManagedVolume deleteAllVolumesInManagedObjectContext:context];
+        
     }];
     
-    
+    [[[self fetchNextPage]publish]connect];
 }
 
 -(RACSignal *) fetchNextPage{
