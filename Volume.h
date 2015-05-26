@@ -10,6 +10,6 @@
 
 @interface Volume : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *title;
 
 @end
