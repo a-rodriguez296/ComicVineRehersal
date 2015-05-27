@@ -54,6 +54,14 @@ static NSString * const reuseIdentifier = @"SuggestionCell";
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *suggestion = [self.viewModel suggestionsAtIndex:indexPath.row];
+    if (self.delegate) {
+        [self.delegate suggestionsViewController:self didSelectSuggestion:suggestion];
+    }
+    
+}
+
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
     self.viewModel.query = searchController.searchBar.text;

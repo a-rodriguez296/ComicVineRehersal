@@ -67,11 +67,11 @@
     
     
     RAC(self, suggestions) = [suggestionsSignal catch:^RACSignal *(NSError *error) {
-        return nil;
+        return [RACSignal return:@[error.localizedDescription]];
     }];
     
     
-    _didUpdateSuggestionsSignal = RACObserve(self, suggestions);
+    _didUpdateSuggestionsSignal = [RACObserve(self, suggestions) mapReplace:nil];
 }
 
 
