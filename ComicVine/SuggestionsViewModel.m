@@ -77,7 +77,7 @@
 
 -(RACSignal *) fetchSuggestionsWithQuery:(NSString *) query{
     ComicVineClient *client = [ComicVineClient new];
-    return [[client fetchSuggestedVolumesWithQuery:query] map:^id(Response *response) {
+    return [[[client fetchSuggestedVolumesWithQuery:query] map:^id(Response *response) {
         
         NSMutableArray *responseArray = [NSMutableArray array];
         for (Volume *volume in response.results) {
@@ -87,7 +87,7 @@
             [responseArray addObject:volume.title];
         }
         return responseArray;
-    }];
+    }] deliverOnMainThread];
 }
 
 @end
