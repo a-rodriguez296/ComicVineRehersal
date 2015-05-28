@@ -8,8 +8,15 @@
 
 #import "SearchViewController.h"
 #import "SuggestionsViewController.h"
+#import "SearchViewModel.h"
+#import "SearchResultsViewModel.h"
+#import "SearchResultCell.h"
+
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface SearchViewController () <UISearchBarDelegate,SuggestionsViewControllerDelegate>
+
+@property(nonatomic, strong) SearchViewModel *viewModel;
 
 @end
 
@@ -17,23 +24,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.viewModel = [SearchViewModel new];
+    
+    @weakify(self);
+    [self.viewModel.didUpdateResults subscribeNext:^(id x) {
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 1;
+    return [self.viewModel numberOfResults];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    SearchResultsViewModel * searchResult = [self.viewModel resultAtIndex:indexPath.row];
+    [cell configureWithSearchResult:searchResult];
     [cell setBackgroundColor:[UIColor greenColor]];
     return cell;
     
@@ -43,14 +57,14 @@
 -(void)suggestionsViewController:(SuggestionsViewController *)viewController didSelectSuggestion:(NSString *)suggestion{
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"%@", suggestion);
+    [self.viewModel setQuery:suggestion];
+
 }
 
 #pragma mark UISearchBarDelegate
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-     NSLog(@"%@", searchBar.text);
+    [self.viewModel setQuery:searchBar.text];
 }
 
 #pragma mark IBActions
