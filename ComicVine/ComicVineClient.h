@@ -13,5 +13,6 @@
 @interface ComicVineClient : NSObject
 
 -(RACSignal *) fetchSuggestedVolumesWithQuery:(NSString *) query;
+-(RACSignal *) fetchVolumeWithQuery:(NSString *) query page:(NSUInteger) page;
 
 @end

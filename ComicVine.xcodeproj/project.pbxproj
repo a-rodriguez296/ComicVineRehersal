@@ -20,6 +20,9 @@
 		9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C925F061B0ACCBC00F7056E /* SuggestionsViewModel.m */; };
 		9CC61CBC1B167E720091E25E /* SearchResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC61CBB1B167E720091E25E /* SearchResultsViewModel.m */; };
 		9CC61CBF1B16AE730091E25E /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC61CBE1B16AE730091E25E /* SearchViewModel.m */; };
+		9CC61CC41B16B6D70091E25E /* Search.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CC61CC21B16B6D70091E25E /* Search.xcdatamodeld */; };
+		9CC61CC91B16B7F70091E25E /* _ManagedVolume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC61CC61B16B7F70091E25E /* _ManagedVolume.m */; };
+		9CC61CCA1B16B7F70091E25E /* ManagedVolume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC61CC81B16B7F70091E25E /* ManagedVolume.m */; };
 		9CE9C60C1B0FAF5F009EF4F2 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9C60B1B0FAF5F009EF4F2 /* Response.m */; };
 		9CE9C6101B0FB617009EF4F2 /* Volume.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9C60F1B0FB617009EF4F2 /* Volume.m */; };
 		A5B52117637899C6A8BAFC76 /* libPods-ComicVine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 884B8453D558EA06F1766B4B /* libPods-ComicVine.a */; };
@@ -62,6 +65,11 @@
 		9CC61CBB1B167E720091E25E /* SearchResultsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewModel.m; sourceTree = "<group>"; };
 		9CC61CBD1B16AE730091E25E /* SearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
 		9CC61CBE1B16AE730091E25E /* SearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
+		9CC61CC31B16B6D70091E25E /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
+		9CC61CC51B16B7F70091E25E /* _ManagedVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ManagedVolume.h; sourceTree = "<group>"; };
+		9CC61CC61B16B7F70091E25E /* _ManagedVolume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ManagedVolume.m; sourceTree = "<group>"; };
+		9CC61CC71B16B7F70091E25E /* ManagedVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedVolume.h; sourceTree = "<group>"; };
+		9CC61CC81B16B7F70091E25E /* ManagedVolume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedVolume.m; sourceTree = "<group>"; };
 		9CE9C60A1B0FAF5F009EF4F2 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
 		9CE9C60B1B0FAF5F009EF4F2 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		9CE9C60E1B0FB617009EF4F2 /* Volume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volume.h; sourceTree = "<group>"; };
@@ -212,9 +220,38 @@
 			name = SearchVC;
 			sourceTree = "<group>";
 		};
+		9CC61CCB1B16B8100091E25E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9CC61CC21B16B6D70091E25E /* Search.xcdatamodeld */,
+				9CC61CCC1B16B81D0091E25E /* Machine Files */,
+				9CC61CCD1B16B8240091E25E /* Human Files */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		9CC61CCC1B16B81D0091E25E /* Machine Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CC61CC51B16B7F70091E25E /* _ManagedVolume.h */,
+				9CC61CC61B16B7F70091E25E /* _ManagedVolume.m */,
+			);
+			name = "Machine Files";
+			sourceTree = "<group>";
+		};
+		9CC61CCD1B16B8240091E25E /* Human Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CC61CC71B16B7F70091E25E /* ManagedVolume.h */,
+				9CC61CC81B16B7F70091E25E /* ManagedVolume.m */,
+			);
+			name = "Human Files";
+			sourceTree = "<group>";
+		};
 		9CE9C60D1B0FB606009EF4F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CC61CCB1B16B8100091E25E /* Core Data */,
 				9CE9C60A1B0FAF5F009EF4F2 /* Response.h */,
 				9CE9C60B1B0FAF5F009EF4F2 /* Response.m */,
 				9CE9C60E1B0FB617009EF4F2 /* Volume.h */,
@@ -368,6 +405,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C925F041B0AC8C600F7056E /* SuggestionsViewController.m in Sources */,
+				9CC61CCA1B16B7F70091E25E /* ManagedVolume.m in Sources */,
+				9CC61CC91B16B7F70091E25E /* _ManagedVolume.m in Sources */,
 				9CC61CBF1B16AE730091E25E /* SearchViewModel.m in Sources */,
 				9CC61CBC1B167E720091E25E /* SearchResultsViewModel.m in Sources */,
 				9C925F071B0ACCBC00F7056E /* SuggestionsViewModel.m in Sources */,
@@ -376,6 +415,7 @@
 				9CE9C6101B0FB617009EF4F2 /* Volume.m in Sources */,
 				9C7E8B0E1B0AC5F4003E7533 /* AppDelegate.m in Sources */,
 				9C7E8B301B0AC6E0003E7533 /* SearchViewController.m in Sources */,
+				9CC61CC41B16B6D70091E25E /* Search.xcdatamodeld in Sources */,
 				9C6700A41B0F837600916A7E /* ComicVineClient.m in Sources */,
 				9C7E8B0B1B0AC5F4003E7533 /* main.m in Sources */,
 			);
@@ -586,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CC61CC21B16B6D70091E25E /* Search.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CC61CC31B16B6D70091E25E /* Search.xcdatamodel */,
+			);
+			currentVersion = 9CC61CC31B16B6D70091E25E /* Search.xcdatamodel */;
+			path = Search.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9C7E8AFD1B0AC5F4003E7533 /* Project object */;
 }

@@ -20,7 +20,7 @@
 @end
 
 
-static NSString *const APIKey = @"75d580a0593b7320727309feb6309f62def786cd";
+static NSString *const APIKey = @"5594c17d89b14d6864c758fa32cbc781d6123648";
 static NSString *const format = @"json";
 
 
@@ -41,7 +41,7 @@ static NSString *const format = @"json";
     
     NSDictionary *parameters = @{@"api_key":APIKey,
                                  @"format": format,
-                                 @"field_list":@"name",
+                                 @"field_list":@"",
                                  @"limit":@10,
                                  @"page":@1,
                                  @"query":query,
@@ -52,7 +52,18 @@ static NSString *const format = @"json";
     return [self GET:@"search" parameters:parameters class:[Volume class]];
 }
 
-
+-(RACSignal *) fetchVolumeWithQuery:(NSString *) query page:(NSUInteger) page{
+    
+    NSDictionary *parameters = @{@"api_key":APIKey,
+                                 @"format": format,
+                                 @"field_list":@"id, image, name, publisher",
+                                 @"limit":@20,
+                                 @"page":@(page),
+                                 @"query":query,
+                                 @"resources":@"volume"};
+    
+    return [self GET:@"search" parameters:parameters class:Nil];
+}
 
 #pragma mark Private
 
@@ -86,4 +97,7 @@ static NSString *const format = @"json";
         
     }] deliverOn:[RACScheduler scheduler]];
 }
+
+
+
 @end
