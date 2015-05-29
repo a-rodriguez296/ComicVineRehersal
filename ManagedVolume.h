@@ -2,6 +2,7 @@
 
 @interface ManagedVolume : _ManagedVolume {}
 
++(NSFetchRequest *) fetchRequestForAllVolumes;
 +(void) deleteAllVolumesInManagedContext:(NSManagedObjectContext *) context;
 
 

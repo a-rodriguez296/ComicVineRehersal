@@ -24,7 +24,6 @@
     
     id results = JSONDictionary[@"results"];
     if (resultsClass != Nil) {
-        id results = JSONDictionary[@"results"];
         if ([results isKindOfClass:[NSArray class]]) {
             response.results = [MTLJSONAdapter modelsOfClass:resultsClass fromJSONArray:results error:NULL];
         }

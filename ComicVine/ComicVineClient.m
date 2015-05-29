@@ -41,7 +41,7 @@ static NSString *const format = @"json";
     
     NSDictionary *parameters = @{@"api_key":APIKey,
                                  @"format": format,
-                                 @"field_list":@"",
+                                 @"field_list":@"name",
                                  @"limit":@10,
                                  @"page":@1,
                                  @"query":query,
@@ -56,7 +56,7 @@ static NSString *const format = @"json";
     
     NSDictionary *parameters = @{@"api_key":APIKey,
                                  @"format": format,
-                                 @"field_list":@"id, image, name, publisher",
+                                 @"field_list":@"id,image,name,publisher",
                                  @"limit":@20,
                                  @"page":@(page),
                                  @"query":query,
