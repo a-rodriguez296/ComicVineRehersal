@@ -13,12 +13,15 @@
 #import "Response.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <Groot/Groot.h>
 
 @interface SearchViewModel ()
 
 @property(strong, nonatomic) ComicVineClient *client;
 @property(nonatomic) NSUInteger currentPage;
 
+
+@property (nonatomic, strong) GRTManagedStore *store;
 
 //Contexto de escritura
 @property(nonatomic, strong) NSManagedObjectContext *privateContext;
@@ -38,8 +41,24 @@
     if (self) {
         _client = [ComicVineClient new];
         _currentPage = 1;
+        
+        
+        
+        _store = [GRTManagedStore temporaryManagedStore];
+        _mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        _mainContext.persistentStoreCoordinator = _store.persistentStoreCoordinator;
+        
+        _privateContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        _privateContext.persistentStoreCoordinator = _store.persistentStoreCoordinator;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(privateContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:_privateContext];
+        
     }
     return self;
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -76,10 +95,25 @@
 }
 
 -(RACSignal *) fetchNextPage{
+    
+     NSManagedObjectContext *context = self.privateContext;
+    
     return [[[self.client fetchVolumeWithQuery:self.query page:self.currentPage++] doNext:^(Response * response) {
+        
+        [GRTJSONSerialization insertObjectsForEntityName:@"Volume" fromJSONArray:response.results inManagedObjectContext:context error:NULL];
         
     }] deliverOnMainThread];
 }
 
+
+-(void) privateContextDidSave:(NSNotification *) notification{
+    
+    //Acá se debe hacer el merge del contexto privado con el contexto del main thread
+    NSManagedObjectContext *context = self.mainContext;
+    
+    [context performBlock:^{
+        [context mergeChangesFromContextDidSaveNotification:notification];
+    }];
+}
 
 @end
